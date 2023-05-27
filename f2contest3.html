@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="fetchData()">some</button>
+    <table id="table"></table>
+    <script>
+        async function fetchData(){
+        let response=await fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false")
+        const jsondata=await response.json()
+        console.log(jsondata)
+        let table=getElementById("table")
+        let row=createElement("tr")
+        let tabledata=createElement("td")
+        tabledata.innerText=jsondata[0]["id"]
+
+        
+        }
+
+        
+    </script>
+</html>
